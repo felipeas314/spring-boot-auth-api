@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import org.springframework.security.core.GrantedAuthority;
 
 @Entity
-public class Perfil implements GrantedAuthority {
+public class Profile implements GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class Perfil implements GrantedAuthority {
 
     @Override
     public String getAuthority() {
-        return null;
+        return this.name;
     }
 }
 

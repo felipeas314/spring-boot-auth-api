@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
+@Table(name = "users")
 public class User implements UserDetails {
 
     @Id
@@ -23,11 +24,11 @@ public class User implements UserDetails {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_perfis", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "perfil_id"))
-    private List<Perfil> perfis = new ArrayList<>();
+    private List<Profile> profiles = new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.perfis;
+        return this.profiles;
     }
 
     @Override
